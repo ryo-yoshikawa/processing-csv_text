@@ -10,7 +10,7 @@ do
   array[3]=`echo ${line} | cut -d ',' -f 4`
   array[4]=`echo ${line} | cut -d ',' -f 5`
 # 誕生日を計算
-  #hoge1=`(-${array[1]})/1000`
+  hoge1=
 # 合計金額を計算
   hoge2=${array[3]}*${array[4]}
 # 表示

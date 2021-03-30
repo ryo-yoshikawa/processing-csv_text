@@ -6,16 +6,16 @@ CSV.foreach("sales.csv", headers:true) do |csv|
   # 日付をこれから使用する
   require "date"
   # 今日の日付を定義
-  Today = p Date.today
+  today = Date.today
   # CSVファイルに記載の誕生日の文字列を日付に変換
-  Birthday = p Date.parse(csv['誕生日'].to_i)
+  birthday = Date.parse(csv['誕生日'])
   # 計算
-  Age = Today.year - Birthday.year
+  age = today.year - birthday.year
 
 # 合計金額の計算
-  Total = csv['単価'].to_i * csv['数量'].to_i
+  total = csv['単価'].to_i * csv['数量'].to_i
 
 # 表示
-  puts "名前は #{csv['名前']} ( #{Age} 歳) を #{csv['買い上げ品目']} を #{Total} 円お買い上げ。"
+  puts "名前は #{csv['名前']} ( #{age} 歳) を #{csv['買い上げ品目']} を #{total} 円お買い上げ。"
 
 end

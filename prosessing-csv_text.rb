@@ -1,16 +1,16 @@
+# 読み込むもの
+  require "csv"
+  require "date"
+  require "happybirthday"
 # CSVファイルを読み込む
-require "csv"
 CSV.foreach("sales.csv", headers:true) do |csv|
 
 # 年齢の計算
-  # 日付をこれから使用する
-  require "date"
-  # 今日の日付を定義
-  today = Date.today
   # CSVファイルに記載の誕生日の文字列を日付に変換
-  birthday = Date.parse(csv['誕生日'])
+  date = Date.parse(csv['誕生日'])
   # 計算
-  age = today.year - birthday.year
+  birthday = Happybirthday.born_on(date)
+  age = birthday.age.years_old
 
 # 合計金額の計算
   total = csv['単価'].to_i * csv['数量'].to_i
